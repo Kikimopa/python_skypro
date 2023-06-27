@@ -1,0 +1,19 @@
+{
+    "транспорт": [
+            {"price": "100", "question": "bus", "answer": "автобус", "asked": false},
+            {"price": "200", "question": "train", "answer": "поезд", "asked": false},
+            {"price": "300", "question":"car", "answer": "автомобиль", "asked": false}
+    ],
+
+    
+        "животные": [
+            {"price":"100", "question":"bird", "answer": "птица", "asked": false},
+            {"price":"200", "question":"giraffe", "answer": "жираф", "asked": false},
+            {"price":"300", "question":"elephant", "answer":"слон", "asked": false}
+        ],
+        "еда": [
+            {"price":"100", "question":"butter", "answer":"масло","asked": false},
+            {"price":"200", "question":"bread","answer":"хлеб","asked": false},       
+            {"price":"300", "question":"beef", "answer":"мясо","asked": false}           
+        ]
+}

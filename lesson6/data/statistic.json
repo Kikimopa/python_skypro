@@ -1,0 +1,18 @@
+{
+    "players": {
+        "lol": [
+            {
+                "games": 2,
+                "true_words": 5,
+                "points": 30
+            }
+        ],
+        "koko": [
+            {
+                "games": 1,
+                "true_words": 1,
+                "points": 10
+            }
+        ]
+    }
+}
