@@ -1,5 +1,5 @@
 import utils
-from flask import Flask
+from flask import Flask, render_template
 
 candidates = utils.load_file()
 
@@ -12,41 +12,23 @@ app.register_error_handler(404, handle_bad_request())
 
 @app.route("/")
 def page_index():
-     output = "<pre>\n"
-     for candidate in candidates:
-         output += f"{candidate['name']}\n"
-         output += f"{candidate['position']}\n"
-         output += f"{candidate['skills']}\n"
-         output+= "\n"
-
-     output += "<pre>\n"
-     return output
+     return render_template("candidate_list.html", item=candidates)
 
 
 @app.route("/candidate/<int:id>/")
 def page_candidate(id):
-    output = "<pre>\n"
-    for candidate in candidates:
-        if candidate["id"] == id:
-            output += f"<img src = {candidate['picture']}\n"
-            output += f"{candidates[id]['name']}\n"
-            output += f"{candidates[id]['position']}\n"
-            output += f"{candidates[id]['skills']}\n"
-            output += "<pre>\n"
-    return output
+    candidate = utils.get_candidate(id)
+    return render_template("card.html", item=candidate)
+
+@app.route("/search/<name>/")
+def page_search_by_name(name):
+    candidates = utils.get_candidates_by_name(name)
+    return render_template("search.html", items=candidates, len=len)
 
 @app.route("/skills/<skill>")
 def page_skills(skill):
-    output = "<pre>\n"
-    flag = False
-    for candidate in candidates:
-        if skill.lower() in candidate["skills"].lower().split(", "):
-            flag = True
-            output += f"{candidate['name']}\n"
-            output += f"{candidate['position']}\n"
-            output += f"{candidate['skills']}\n<pre>\n"
-    if flag == False:
-        output+= "Ничего не найдено =(<pre>\n"
-    return output
+    candidates = utils.get_candidates_by_skill(skill)
+    return render_template("skills.html", items=candidates, len=len)
+
 
 app.run()

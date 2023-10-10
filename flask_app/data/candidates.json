@@ -61,5 +61,14 @@
     "gender": "female",
     "age": 33,
     "skills": "Python, Django, flask"
+  },
+  {
+    "id": 8,
+    "name": "Adela Hendricks",
+    "picture": "https://picsum.photos/200",
+    "position": "Go разработчик",
+    "gender": "female",
+    "age": 42,
+    "skills": "go, python"
   }
 ]
